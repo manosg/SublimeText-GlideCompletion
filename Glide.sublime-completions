@@ -1,0 +1,7 @@
+{
+	"scope": "source.js -string -comment -constant",
+
+	"completions": [
+		{ "trigger": "GlideRecord", "contents": "GlideRecord('$1')" },
+	]
+}
