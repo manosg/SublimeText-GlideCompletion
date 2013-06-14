@@ -4,6 +4,6 @@
 	"completions": [
 
 		// GlideRecord
-		{ "trigger": "GlideRecord", "contents": "GlideRecord($0)" }
+		{ "trigger": "GlideRecord", "contents": "GlideRecord($1)" }
 	]
 }

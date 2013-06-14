@@ -12,7 +12,7 @@ def match(rex, str):
 # Provide completions that match just after typing an opening angle bracket
 class TagCompletions(sublime_plugin.EventListener):
     def on_query_completions(self, view, prefix, locations):
-        # Only trigger within HTML
+        # Only trigger within JavaScript
         if not view.match_selector(locations[0],
                 "source.js"):
             return []
@@ -25,32 +25,32 @@ class TagCompletions(sublime_plugin.EventListener):
         return ([
                 # GlideRecord Query
                 ("addActiveQuery()", "addActiveQuery()"),
-                ("addDomainQuery(Object o)", "addDomainQuery($0)"),
-                ("addEncodedQuery(String query)", "addEncodedQuery($0)"),
+                ("addDomainQuery(Object o)", "addDomainQuery($1)"),
+                ("addEncodedQuery(String query)", "addEncodedQuery($1)"),
                 ("addInactiveQuery()", "addInactiveQuery()"),
-                ("addJoinQuery(joinTable, [primaryField], [joinTableField])", "addJoinQuery($0)"),
-                ("addNotNullQuery(String fieldName)", "addNotNullQuery($0)"),
-                ("addNullQuery(String fieldName)", "addNullQuery($0)"),
-                ("addOrCondition(String fieldName, [Object operator], Object value)", "addOrCondition($0,$1)"),
-                ("addQuery(String fieldName, [Object operator], Object value)", "addQuery($0,$1)"),
+                ("addJoinQuery(joinTable, [primaryField], [joinTableField])", "addJoinQuery($1)"),
+                ("addNotNullQuery(String fieldName)", "addNotNullQuery($1)"),
+                ("addNullQuery(String fieldName)", "addNullQuery($1)"),
+                ("addOrCondition(String fieldName, [Object operator], Object value)", "addOrCondition($1,$2)"),
+                ("addQuery(String fieldName, [Object operator], Object value)", "addQuery($1,$2)"),
                 ("canCreate()", "canCreate()"),
                 ("canDelete()", "canDelete()"),
                 ("canRead()", "canRead()"),
                 ("canWrite()", "canWrite()"),
                 ("changes()", "changes()"),
-                ("find(columnName, value)", "find($0, $1)"),
+                ("find(columnName, value)", "find($1, $2)"),
                 ("hasAttachments()", "hasAttachments()"),
                 ("hasNext()", "hasNext()"),
-                ("instanceOf(String className)", "instanceOf($0)"),
+                ("instanceOf(String className)", "instanceOf($1)"),
                 ("isNewRecord()", "isNewRecord()"),
                 ("isValid()", "isValid()"),
-                ("isValidField(String columnName)", "isValidField($0)"),
+                ("isValidField(String columnName)", "isValidField($1)"),
                 ("isValidRecord()", "isValidRecord()"),
                 ("next()", "next()"),
                 ("_next()", "_next()"),
                 ("operation()", "operation()"),
-                ("orderBy(String name)", "orderBy($0)"),
-                ("orderByDesc(String name)", "orderByDesc($0)"),
+                ("orderBy(String name)", "orderBy($1)"),
+                ("orderByDesc(String name)", "orderByDesc($1)"),
                 ("query([Object field, Object value])", "query()"),
                 ("queryNoDomain([Object field, Object value])", "queryNoDomain()"),
                 ("_query([Object field, Object value])", "_query()"),
@@ -58,17 +58,17 @@ class TagCompletions(sublime_plugin.EventListener):
                 ("saveLocation()", "saveLocation()"),
 
                 # GlideRecord Get
-                ("get(Object name, Object value)", "get($0, $1)"),
-                ("getAttribute(String attribute)", "getAttribute($0)"),
+                ("get(Object name, Object value)", "get($1, $2)"),
+                ("getAttribute(String attribute)", "getAttribute($1)"),
                 ("getClassDisplayValue()", "getClassDisplayValue()"),
                 ("getDisplayValue()", "getDisplayValue()"),
                 ("getED()", "getED()"),
-                ("getElement(String columnName)", "getElement($0)"),
+                ("getElement(String columnName)", "getElement($1)"),
                 ("getEncodedQuery()", "getEncodedQuery()"),
                 ("getEscapedDisplayValue()", "getEscapedDisplayValue()"),
                 ("getFields()", "getFields()"),
                 ("getLabel()", "getLabel()"),
-                ("getLink(boolean noStack)", "getLink($0)"),
+                ("getLink(boolean noStack)", "getLink($1)"),
                 ("getLocation()", "getLocation()"),
                 ("getPlural()", "getPlural()"),
                 ("getRecordClassName()", "getRecordClassName()"),
@@ -77,5 +77,37 @@ class TagCompletions(sublime_plugin.EventListener):
                 ("getRowCount()", "getRowCount()"),
                 ("getRowNumber()", "getRowNumber()"),
                 ("getTableName()", "getTableName()"),
-                ("getValue(String name)", "getValue($0)")
+                ("getValue(String name)", "getValue($1)"),
+
+                # GlideRecord Set
+                ("autoSysFields(boolean e)", "autoSysFields($1)"),
+                ("setAbortAction(boolean b)", "setAbortAction($1)"),
+                ("setDisplayValue(String name, Object value)", "setAbortAction($1)"),
+                ("setForceUpdate(boolean force)", "setForceUpdate($1)"),
+                ("setLimit(int)", "setLimit($1)"),
+                ("setLocation(int rowNumber)", "setLocation($1)"),
+                ("setNewGuid()", "setNewGuid()"),
+                ("setNewGuidValue(String guid)", "setNewGuidValue($1)"),
+                ("setQueryReferences(boolean queryReferences)", "setQueryReferences($1)"),
+                ("setUseEngines(boolean e)", "setUseEngines($1)"),
+                ("setValue(String name, Object value)", "setValue($1,$2)"),
+                ("setWorkflow(boolean e)", "setWorkflow($1)"),
+                
+
+                # GlideRecord Update
+                ("applyTemplate(String template)", "applyTemplate($1)"),
+                ("update(Object reason)", "update($1)"),
+                ("updateWithReferences(Object reason)", "updateWithReferences($1)"),
+
+                # GlideRecord Insert
+                ("initialize()", "initialize()"),
+                ("insert()", "insert()"),
+                ("insertWithReferences()", "insertWithReferences()"),
+                ("newRecord()", "newRecord()"),
+                ("deleteMultiple()", "deleteMultiple()"),
+
+                #GlideRecord Delete
+                ("deleteMultiple()", "deleteMultiple()"),
+                ("deleteRecord()", "deleteRecord()")
+
         ], sublime.INHIBIT_WORD_COMPLETIONS | sublime.INHIBIT_EXPLICIT_COMPLETIONS)
