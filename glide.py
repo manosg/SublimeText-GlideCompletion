@@ -82,7 +82,7 @@ class TagCompletions(sublime_plugin.EventListener):
                 # GlideRecord Set
                 ("autoSysFields(boolean e)", "autoSysFields($1)"),
                 ("setAbortAction(boolean b)", "setAbortAction($1)"),
-                ("setDisplayValue(String name, Object value)", "setAbortAction($1)"),
+                ("setDisplayValue(String name, Object value)", "setDisplayValue($1)"),
                 ("setForceUpdate(boolean force)", "setForceUpdate($1)"),
                 ("setLimit(int)", "setLimit($1)"),
                 ("setLocation(int rowNumber)", "setLocation($1)"),
