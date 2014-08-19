@@ -24,7 +24,7 @@ class TagCompletions(sublime_plugin.EventListener):
         # We try to escape the cases when we have g_form. and don't mix the functions of g_form with the Glide
         ptGformEscape = locations[0] - len(prefix) - 7
         chGformEscape = view.substr(sublime.Region(ptGformEscape, ptGformEscape + 7))
-        if chGformEscape == 'g_form.' || chGformEscape == 'g_user.':
+        if chGformEscape == 'g_user.':
             return []
             
         #if chGformEscape == 'g_user.':
