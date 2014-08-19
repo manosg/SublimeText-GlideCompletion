@@ -26,6 +26,7 @@ class TagCompletions(sublime_plugin.EventListener):
         chGformEscape = view.substr(sublime.Region(ptGformEscape, ptGformEscape + 7))
         if chGformEscape == 'g_form.':
             return []
+            
         if chGformEscape == 'g_user.':
             return []
 
